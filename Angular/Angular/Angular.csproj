@@ -65,6 +65,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ng-class\Index.html" />
+    <Content Include="ng-class\js\app1.js" />
+    <Content Include="ng-class\js\controller\MovesController.js" />
     <Content Include="ng-if\Index.html" />
     <Content Include="ng-if\js\app1.js" />
     <Content Include="ng-if\js\controller\MovesController.js" />

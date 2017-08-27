@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .old {
+            background: red;
+        }
+
+        .modern {
+            background: blue;
+        }
+
+        .new {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="MoviesController as movies">
+        <ul>
+            <!--<li ng-class="{old:movie.popular}"-->
+            <li  ng-class="movie.year < 1995 ? 'old' : 'modern'"
+                ng-repeat="movie in movies.favorites"
+                >
+                <p>{{ movie.title }}</p>
+                <p>Released in: {{ movie.year }}</p>
+              
+            </li>
+        </ul>
+    </div>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="js/app1.js"></script>
+   
+    <script src="js/controller/MovesController.js"></script>
+</body>
+</html>
