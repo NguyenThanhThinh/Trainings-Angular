@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div ng-controller="MoviesController as movies">
+        <ul>
+            <li ng-repeat="movie in movies.favorites">
+                <p>{{ movie.title }}</p>
+                <p>Released in: {{ movie.year }}</p>
+                <p ng-if="movie.popular">This movie is popular!</p>
+                <p ng-if="movie.year > '2000'">
+                    This movie is quite new!
+                </p>
+            </li>
+        </ul>
+    </div>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="js/app1.js"></script>
+
+    <script src="js/controller/MovesController.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div ng-controller="MoviesController as movies">
+        <ul>
+            <li ng-repeat="movie in movies.favorites">
+                <p>{{ movie.title }}</p>
+                <p>Released in: {{ movie.year }}</p>
+               <div ng-switch="movie.category">
+                   <div ng-switch-when="A">
+                       <strong>A</strong>
+                   </div>
+                   <div ng-switch-default>
+                       movie no has category
+                   </div>
+               </div>
+            </li>
+        </ul>
+    </div>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="js/app1.js"></script>
+   
+    <script src="js/controller/MovesController.js"></script>
+</body>
+</html>
