@@ -2,6 +2,7 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "angular": "^1.6.6"
+    "angular": "^1.6.6",
+    "boostrap": "3.3.7"
   }
 }

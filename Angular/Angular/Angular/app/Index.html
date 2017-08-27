@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8" />
+    <title>Angular js</title>
+    <link href="../../bower_components/boostrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="css.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" ng-controller="myController as vm">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>your shopping cart</h2>
+                    </div>
+                    <div class="panel-body">
+                        <h3>your order</h3>
+                        <div class="list-group">
+                            <div class="list-group-item" ng-repeat="item in vm.items">
+                                <span>{{item.title}}</span>
+                                <input ng-model='item.quantity'>
+                                <span id="price">{{item.price | currency}}</span>
+                                <span>{{item.price * item.quantity | currency}}</span>
+                                <button class="btn btn-default" ng-click="vm.remove($index)">Remove</button>
+                            </div>
+                            <div>Total: {{vm.Total() | currency}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" ng-controller="studentController as sv">
+                <div class="panel-heading">
+                    <h2>Students</h2>
+                </div>
+                <div class="panel-body">
+
+                    <ul class="list-group-item list-unstyled">
+                        <li ng-repeat='student in sv.students'>
+                            <a href='/student/view/{{student.id}}'>{{student.name}}</a>
+                        </li>
+                    </ul>
+                    <button ng-click="sv.insertTom()">Insert</button>
+                </div>
+            </div>
+            <div class="col-md-4" ng-controller="albumController as ab">
+                <div class="panel-heading">
+                    <h2>Students</h2>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-bordered">
+                        <tr ng-repeat='track in ab.album'>
+                            <td>{{$index + 1}}</td>
+                            <td>{{track.name}}</td>
+                            <td>{{track.duration}}</td>
+                        </tr>
+                    </table>
+
+                    <div>
+                        <button class="btn btn-danger" ng-click='ab.toggleMenu()'>Toggle Menu</button>
+                        <ul ng-show='ab.menuState'>
+                            <li class='menu-disabled-{{ab.isDisabled}}' ng-click='ab.stun()'>Stun</li>
+                            <li ng-click='ab.disintegrate()'>Disintegrate</li>
+                            <li ng-click='ab.erase()'>Erase from history</li>
+                        </ul>
+                        <div />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/boostrap/dist/js/bootstrap.js"></script>
+    <script src="app.js"></script>
+    <script src="js/controller/home.js"></script>
+    <script src="js/controller/student.js"></script>
+    <script src="js/controller/album.js"></script>
+</body>
+</html>
